@@ -1,14 +1,14 @@
 #############################################################
 #Linux/BSD/Mac
 LUA_DIR= /usr/local/share/lua/5.1.1
-LUA_LIBDIR= /usr/local/lib
-LUA_INCLUDES= /usr/local/include
-JDK= $(JAVA_HOME)
+LUA_LIBDIR= /home/matt/Projects/elua
+LUA_INCLUDES=/home/matt/Projects/elua/src/lua 
+JDK= /usr/lib/jvm/java-6-sun-1.6.0.26
 # For Mac OS, comment the above line and uncomment this one
 #JDK=/Library/Java/Home
 
 # Full path to Lua static library
-LIB_LUA=$(LUA_LIBDIR)/liblua.a
+LIB_LUA=$(LUA_LIBDIR)/libluarpc.a
 
 #Linux/BSD
 LIB_EXT= .so
@@ -27,7 +27,7 @@ DLLIB= -ldl
 
 WARN= -O2 -Wall -fPIC -W -Waggregate-return -Wcast-align -Wmissing-prototypes -Wnested-externs -Wshadow -Wwrite-strings
 INCS= -I$(JDK)/include -I$(JDK)/include/linux -I$(LUA_INCLUDES)
-CFLAGS= $(WARN) $(INCS)
+CFLAGS= $(WARN) $(INCS) -DLUA_CROSS_COMPILER
 
 CC= gcc
 
